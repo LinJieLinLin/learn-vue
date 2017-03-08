@@ -1,6 +1,6 @@
-# y
+# myVue
 
-> y
+> myVue
 
 ## Build Setup
 
