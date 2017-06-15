@@ -8,7 +8,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/sb',
+      path: '/',
       name: 'Hello',
       component: Hello
     },
