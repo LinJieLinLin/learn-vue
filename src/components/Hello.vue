@@ -4,13 +4,13 @@
         <div class="main">
             <div id="linVideo" class="lin-video">
                 <video id="linVideo-player" preload="auto" poster="https://s.cdpn.io/6035/vp_poster.jpg">
-                    <source src="http://fs.kuxiao.cn/usr/api/dload?mark=video-58abb093e27ce1087fc8ea00-14944930748540&type=V_pc&token=5942B727A17EB404BFBEDAD6" type="video/mp4" />
+                    <source src="http://kuxiao.jxzy.com/Act-ss-mp4-hd/593e62b1a17eb4056ed122cf.mp4?OSSAccessKeyId=STS.MhCua3Z7ntjDLDJbrTjjqqa6x&Expires=1498755443000&security-token=CAIS%2FwF1q6Ft5B2yfSjIrKv2PtuHt%2BhPw6ivTmL7hnIBZuVdnqSdmjz2IHBMdXdrCeEev%2F82nmhU5%2FwZlrEuGsIYHxeaNcIpsZldrVj9bdSbt5TpteZcXydp18%2FQWXDBx8b3T7jTbrG0I4WACT3tkit03sGJF1GLVECkNpukkINuas9tMCCzcTtBAqU9RGIg0rh4U0HcLvGwKBXnr3PNBU5zwGpGhHh49L60z7%2F3iHOcriWjmrNN%2F96gf8H8NpM3bMoiabrvgrwqLJim%2BTVL9h1H%2BJ1xiKF54jrdtrmfeQIBu0TYaLqFqow0dVUhOvlgQLQksvnwmPpjpvfDMG5QKYqK94oagAGSTdmaAhBXj1LPFCnLZ5nde46ir4L56zK1mMZgpaSk9uyz9hoq4qox5LE3bInfNWFnRcg6SqvBYQOBwD4jnjYja%2FoBxybbGOeqWcj4ldWMqHosJNjmu2yEFkggdZis9YUKE8U6u34jfYy7UVPTyvhZ%2F0kprVQZl2GOrKMZrErjhA%3D%3D&Signature=nDQU5UCrliQjbq9%2FIU0DOUPIR0k%3D" type="video/mp4" />
                     <p>你的浏览器不支持视频播放.</p>
                 </video>
                 <div class="video-bar">
                     <div id="linVideo-play" class="v-play">
-                        <i class="fa fa-play" aria-hidden="true"></i>
-                        <i class="fa fa-pause hide" aria-hidden="true"></i>
+                        <i id="linVideo-play-btn" class="fa fa-play" aria-hidden="true"></i>
+                        <i id="linVideo-pause-btn" class="fa fa-pause hide" aria-hidden="true"></i>
                     </div>
                     <div class="v-time">
                         <span id="linVideo-currentTime" class="currentTime">00:00</span>
@@ -25,9 +25,11 @@
                     </div>
                     <div id="linVideo-right-bar" class="right-bar">
                         <div id="linVideo-volume" class="v-volume">
-                            <i class="fa fa-volume-off hide" aria-hidden="true"></i>
-                            <i class="fa fa-volume-down hide" aria-hidden="true"></i>
-                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                            <div class="v-volume-btn">
+                                <i id="linVideo-volumeoff-btn" class="fa fa-volume-off hide" aria-hidden="true"></i>
+                                <i id="linVideo-volumedown-btn" class="fa fa-volume-down hide" aria-hidden="true"></i>
+                                <i id="linVideo-volumeup-btn" class="fa fa-volume-up" aria-hidden="true"></i>
+                            </div>
                         </div>
                         <div class="v-volume-progress">
                             <div id="linVideo-volume-progress" class="volume-progress">
@@ -35,7 +37,7 @@
                             </div>
                         </div>
                         <div class="v-expand">
-                            <i class="fa fa-expand" aria-hidden="true"></i>
+                            <i id="linVideo-expand" class="fa fa-expand" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -290,6 +292,11 @@ a {
         height: 100%;
         text-align: right;
     }
+    .v-volume-btn {
+        width: 15px;
+        text-align: left;
+        display: inline-block;
+    }
     .v-volume-progress {
         padding-left: 40px;
         padding-right: 50px;
@@ -317,7 +324,7 @@ a {
             left: 0;
             top: 50%;
             z-index: 2;
-            width: 40%;
+            width: 100%;
             height: 4px;
             transform: translate(0, -50%);
             background-color: #00BFB8;
