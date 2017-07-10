@@ -2,46 +2,6 @@
     <div class="hello">
         <link rel="stylesheet" media="all" href="https://linjielinlin.github.io/static/libs/font-awesome/css/font-awesome.min.css">
         <div class="main">
-            <div id="linVideo" class="lin-video">
-                <video id="linVideo-player" preload="auto" poster="https://s.cdpn.io/6035/vp_poster.jpg">
-                    <source src="http://kuxiao.jxzy.com/Act-ss-mp4-hd/593e62b1a17eb4056ed122cf.mp4?OSSAccessKeyId=STS.MhCua3Z7ntjDLDJbrTjjqqa6x&Expires=1498755443000&security-token=CAIS%2FwF1q6Ft5B2yfSjIrKv2PtuHt%2BhPw6ivTmL7hnIBZuVdnqSdmjz2IHBMdXdrCeEev%2F82nmhU5%2FwZlrEuGsIYHxeaNcIpsZldrVj9bdSbt5TpteZcXydp18%2FQWXDBx8b3T7jTbrG0I4WACT3tkit03sGJF1GLVECkNpukkINuas9tMCCzcTtBAqU9RGIg0rh4U0HcLvGwKBXnr3PNBU5zwGpGhHh49L60z7%2F3iHOcriWjmrNN%2F96gf8H8NpM3bMoiabrvgrwqLJim%2BTVL9h1H%2BJ1xiKF54jrdtrmfeQIBu0TYaLqFqow0dVUhOvlgQLQksvnwmPpjpvfDMG5QKYqK94oagAGSTdmaAhBXj1LPFCnLZ5nde46ir4L56zK1mMZgpaSk9uyz9hoq4qox5LE3bInfNWFnRcg6SqvBYQOBwD4jnjYja%2FoBxybbGOeqWcj4ldWMqHosJNjmu2yEFkggdZis9YUKE8U6u34jfYy7UVPTyvhZ%2F0kprVQZl2GOrKMZrErjhA%3D%3D&Signature=nDQU5UCrliQjbq9%2FIU0DOUPIR0k%3D" type="video/mp4" />
-                    <p>你的浏览器不支持视频播放.</p>
-                </video>
-                <div class="video-bar">
-                    <div id="linVideo-play" class="v-play">
-                        <i id="linVideo-play-btn" class="fa fa-play" aria-hidden="true"></i>
-                        <i id="linVideo-pause-btn" class="fa fa-pause hide" aria-hidden="true"></i>
-                    </div>
-                    <div class="v-time">
-                        <span id="linVideo-currentTime" class="currentTime">00:00</span>
-                        <span>/</span>
-                        <span id="linVideo-duration" class="duration">00:00</span>
-                    </div>
-                    <div class="v-progress">
-                        <div id="linVideo-play-progress" class="play-progress">
-                            <div id="linVideo-has-play" class="has-play"></div>
-                            <div id="linVideo-has-load" class="has-load"></div>
-                        </div>
-                    </div>
-                    <div id="linVideo-right-bar" class="right-bar">
-                        <div id="linVideo-volume" class="v-volume">
-                            <div class="v-volume-btn">
-                                <i id="linVideo-volumeoff-btn" class="fa fa-volume-off hide" aria-hidden="true"></i>
-                                <i id="linVideo-volumedown-btn" class="fa fa-volume-down hide" aria-hidden="true"></i>
-                                <i id="linVideo-volumeup-btn" class="fa fa-volume-up" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <div class="v-volume-progress">
-                            <div id="linVideo-volume-progress" class="volume-progress">
-                                <div id="linVideo-now-volume" class="now-volume"></div>
-                            </div>
-                        </div>
-                        <div class="v-expand">
-                            <i id="linVideo-expand" class="fa fa-expand" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <button v-on:click="linVideo()">video</button>
         <div class="my"></div>
@@ -75,7 +35,7 @@
     </div>
 </template>
 <script>
-import LinVideo from '../common/lin-video.js'
+import LinPlayer from '../common/lin-video.js'
 export default {
     name: 'hello',
     data() {
@@ -121,18 +81,28 @@ export default {
         linVideo: function() {
             let temId = 'linVideo';
             let option = {
+                // autoPlay: true,
+                type: 'video',
+                src: 'http://kuxiao.jxzy.com/Act-ss-mp4-hd/59142851e27ce1253d36da3c.mp4?OSSAccessKeyId=STS.MWgVXMKErUNk8Qpqxv7aVXT6z&Expires=1499281948000&security-token=CAIS%2FwF1q6Ft5B2yfSjIrJTSHeL5pppT4oyAOnfBlXgjO%2B56t5GdmDz2IHBMdXdrCeEev%2F82nmhU5%2FwZlrEuGsJJH0ecPMIpsZldrVj9bdSbt5TosrZcGA9m0NHQWXDBx8b3T7jTbrG0I4WACT3tkit03sGJF1GLVECkNpukkINuas9tMCCzcTtBAqU9RGIg0rh4U0HcLvGwKBXnr3PNBU5zwGpGhHh49L60z7%2F3iHOcriWjmrNN%2F96gf8H8NpM3bMoiabrvgrwqLJim%2BTVL9h1H%2BJ1xiKF54jrdtrmfeQIBu0TYaLqFqow0dVUhOvlgQLQksvnwmPpjpvfDMG5QKYqK94oagAFJ0a2cQh6aso5bjZRC486I22Bpsirh6ZGuvE1m%2FPw7ClmLr8YtzJXM25B5v3%2BXfMjeaBoH84B8sy%2BNkVRHY72E6Y6YfWL8VLtr3a7T1Jx64RW6Hfr9%2FgW9hmBCj0DFBFVc2aCYq1BlRR8tRim%2BnxfxJzq3dEwOPQJXRI5DaZoOMg%3D%3D&Signature=hdZJRfiKmjkwdYEtDNMqEZ7X8Mk%3D',
                 id: temId
             };
-            let linVideo = {
-                [temId]: new LinVideo(option)
+            let linPlayer = LinPlayer(option);
+            temId = 'linVideo-1';
+            option = {
+                // autoPlay: true,
+                type: 'video',
+                src: 'http://kuxiao.jxzy.com/Act-ss-mp4-hd/59142851e27ce1253d36da3c.mp4?OSSAccessKeyId=STS.MWgVXMKErUNk8Qpqxv7aVXT6z&Expires=1499281948000&security-token=CAIS%2FwF1q6Ft5B2yfSjIrJTSHeL5pppT4oyAOnfBlXgjO%2B56t5GdmDz2IHBMdXdrCeEev%2F82nmhU5%2FwZlrEuGsJJH0ecPMIpsZldrVj9bdSbt5TosrZcGA9m0NHQWXDBx8b3T7jTbrG0I4WACT3tkit03sGJF1GLVECkNpukkINuas9tMCCzcTtBAqU9RGIg0rh4U0HcLvGwKBXnr3PNBU5zwGpGhHh49L60z7%2F3iHOcriWjmrNN%2F96gf8H8NpM3bMoiabrvgrwqLJim%2BTVL9h1H%2BJ1xiKF54jrdtrmfeQIBu0TYaLqFqow0dVUhOvlgQLQksvnwmPpjpvfDMG5QKYqK94oagAFJ0a2cQh6aso5bjZRC486I22Bpsirh6ZGuvE1m%2FPw7ClmLr8YtzJXM25B5v3%2BXfMjeaBoH84B8sy%2BNkVRHY72E6Y6YfWL8VLtr3a7T1Jx64RW6Hfr9%2FgW9hmBCj0DFBFVc2aCYq1BlRR8tRim%2BnxfxJzq3dEwOPQJXRI5DaZoOMg%3D%3D&Signature=hdZJRfiKmjkwdYEtDNMqEZ7X8Mk%3D',
+                id: temId
             };
-            console.log(linVideo);
+            let linPlayer1 = LinPlayer(option);
+            console.log('--------------');
+            console.log(linPlayer, linPlayer1);
         }
     }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="scss">
 $cRed:red;
 h1,
 h2 {
@@ -180,10 +150,31 @@ a {
     z-index: 1;
 }
 
+.v-player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 .lin-video {
     position: relative;
     width: 480px;
     height: 240px;
+    &.full-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999999;
+        > video {
+            width: 100%;
+            height: 100%;
+        }
+    }
     > video {
         width: 480px;
         height: 240px;
